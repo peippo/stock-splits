@@ -37,7 +37,7 @@ export const splitDataToQuarters = (data, year) =>
 	});
 
 export const splitDataToMonths = (data, year, quarter) =>
-	quarterMonths[quarter].map((m) => {
+	quarterMonths[quarter]?.map((m) => {
 		const number = parseInt(m);
 		const name = monthNames[number - 1];
 		const content = data.filter(
