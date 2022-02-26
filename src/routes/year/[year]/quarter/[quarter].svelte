@@ -13,14 +13,25 @@
 </script>
 
 <script>
+	import { page } from '$app/stores';
+	import { splitDataToMonths } from '$lib/utils';
+
 	export let splits;
+
+	$: year = $page.params.year;
+	$: quarter = $page.params.quarter;
+	$: months = splitDataToMonths(splits, year, quarter);
 </script>
 
 <main>
 	{#if splits.length > 0}
-		{#each splits as split}
-			<h2>{split.ticker}</h2>
-			{split.split_from}:{split.split_to}
+		{#each months as month}
+			{#if month.content.length > 0}
+				<h2>
+					<a href={`/year/${year}/month/${month.number}`}>{month.name}</a>
+				</h2>
+				{month.content.length} splits
+			{/if}
 		{/each}
 	{:else}
 		<p>No data found</p>
