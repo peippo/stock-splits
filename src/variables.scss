@@ -1,0 +1,31 @@
+@mixin blocks-container {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+
+	@media (min-width: 800px) {
+		flex-direction: row;
+	}
+}
+
+@mixin block-name {
+	text-transform: uppercase;
+	padding-bottom: 0.33rem;
+	margin: 0;
+
+	a {
+		color: #fff;
+		text-decoration: none;
+	}
+}
+
+@mixin expanded-link {
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+}
