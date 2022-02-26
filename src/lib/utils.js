@@ -19,9 +19,10 @@ const monthNames = [
 	'November',
 	'December'
 ];
+const monthLengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-export const splitDataToQuarters = (data, year) => {
-	return quarterNames.map((q) => {
+export const splitDataToQuarters = (data, year) =>
+	quarterNames.map((q) => {
 		const firstMonth = quarterMonths[q][0];
 		const [lastMonth] = quarterMonths[q].slice(-1);
 		const name = q;
@@ -34,7 +35,6 @@ export const splitDataToQuarters = (data, year) => {
 
 		return { name, content };
 	});
-};
 
 export const splitDataToMonths = (data, year, quarter) =>
 	quarterMonths[quarter].map((m) => {
@@ -47,3 +47,19 @@ export const splitDataToMonths = (data, year, quarter) =>
 
 		return { number, name, content };
 	});
+
+export const splitDataToDays = (data, month) => {
+	const days = monthLengths[month - 1];
+	const daysArray = [];
+
+	for (let i = 0; i < days; i++) {
+		daysArray.push([]);
+	}
+
+	data.forEach((split) => {
+		const dayIndex = new Date(split.execution_date).getDate() - 1;
+		daysArray[dayIndex].push(split);
+	});
+
+	return daysArray;
+};
