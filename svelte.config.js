@@ -17,13 +17,11 @@ const config = {
 		}
 	},
 
-	preprocess: [
-		preprocess({
-			scss: {
-				prependData: '@use "src/variables.scss" as *;'
-			}
-		})
-	]
+	preprocess: preprocess({
+		scss: {
+			prependData: '@use "src/variables.scss" as *;'
+		}
+	})
 };
 
 export default config;
