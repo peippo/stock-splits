@@ -1,0 +1,26 @@
+:root {
+	--header-background-color: salmon;
+	--header-link-color: #66251e;
+	--block-background-color: #8a99a9;
+	--block-background-hover-color: #8595a5;
+	--block-border-color: #a1b2c4;
+	--ticker-background-color: #76889b;
+	--ticker-color: #27303a;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 18px;
+}
+
+body {
+	margin: 0;
+	font-family: 'Work Sans', sans-serif;
+	background-color: slategrey;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
