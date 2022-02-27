@@ -40,7 +40,7 @@
 		const closeButton = document.getElementById('js-modal-close');
 
 		window.setTimeout(function () {
-			closeButton.focus();
+			closeButton?.focus();
 		}, 100);
 	}
 
