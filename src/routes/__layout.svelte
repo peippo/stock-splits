@@ -5,17 +5,17 @@
 
 <header>
 	<h1><a href="/">Stock/Splits</a></h1>
-	<nav>
+	<nav aria-label="Main">
 		<NavLink href="/year/2020" title="2020" type="year" />
-		<NavLink href="/year/2020/quarter/q3" title="Q3" />
-		<NavLink href="/year/2020/quarter/q4" title="Q4" />
+		<NavLink href="/year/2020/quarter/q3" title="Q3" type="quarter" />
+		<NavLink href="/year/2020/quarter/q4" title="Q4" type="quarter" />
 		<NavLink href="/year/2021" title="2021" type="year" />
-		<NavLink href="/year/2021/quarter/q1" title="Q1" />
-		<NavLink href="/year/2021/quarter/q2" title="Q2" />
-		<NavLink href="/year/2021/quarter/q3" title="Q3" />
-		<NavLink href="/year/2021/quarter/q4" title="Q4" />
+		<NavLink href="/year/2021/quarter/q1" title="Q1" type="quarter" />
+		<NavLink href="/year/2021/quarter/q2" title="Q2" type="quarter" />
+		<NavLink href="/year/2021/quarter/q3" title="Q3" type="quarter" />
+		<NavLink href="/year/2021/quarter/q4" title="Q4" type="quarter" />
 		<NavLink href="/year/2022" title="2022" type="year" />
-		<NavLink href="/year/2022/quarter/q1" title="Q1" />
+		<NavLink href="/year/2022/quarter/q1" title="Q1" type="quarter" />
 	</nav>
 </header>
 

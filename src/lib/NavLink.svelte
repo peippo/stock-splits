@@ -4,12 +4,14 @@
 	export let title;
 	export let href;
 	export let type;
+
+	$: isActive = $page.url.pathname.includes(href);
 </script>
 
 <a
 	{href}
 	class={type === 'year' ? 'nav__link nav__link--year' : 'nav__link'}
-	class:active={$page.url.pathname.includes(href)}
+	class:active={isActive}
 >
 	{title}
 </a>

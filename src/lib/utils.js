@@ -5,7 +5,7 @@ const quarterMonths = {
 	q3: ['07', '08', '09'],
 	q4: ['10', '11', '12']
 };
-const monthNames = [
+export const monthNames = [
 	'January',
 	'February',
 	'March',
@@ -58,7 +58,7 @@ export const splitDataToDays = (data, month) => {
 
 	data.forEach((split) => {
 		const dayIndex = new Date(split.execution_date).getDate() - 1;
-		daysArray[dayIndex].push(split);
+		daysArray[dayIndex]?.push(split);
 	});
 
 	return daysArray;
