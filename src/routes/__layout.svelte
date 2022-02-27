@@ -46,5 +46,6 @@
 
 	nav {
 		margin-left: 1rem;
+		width: 100%;
 	}
 </style>
