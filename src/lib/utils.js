@@ -66,6 +66,5 @@ export const splitDataToDays = (data, month) => {
 
 export const usdFormatter = new Intl.NumberFormat('en-US', {
 	style: 'currency',
-	currency: 'USD',
-	maximumFractionDigits: 0
+	currency: 'USD'
 });
