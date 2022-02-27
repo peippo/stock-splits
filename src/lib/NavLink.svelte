@@ -15,6 +15,7 @@
 </script>
 
 <a
+	sveltekit:prefetch
 	{href}
 	class={type === 'year' ? 'nav__link nav__link--year' : 'nav__link'}
 	class:active={isActive}

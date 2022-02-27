@@ -32,8 +32,10 @@
 						<div class="quarter" in:fly={{ y: -20, duration: 300, delay: index * 150 }}>
 							<div class="quarter__info">
 								<h2 class="quarter__name">
-									<a class="quarter__link" href={`/year/${year}/quarter/${quarter.name}`}
-										>{quarter.name}</a
+									<a
+										sveltekit:prefetch
+										class="quarter__link"
+										href={`/year/${year}/quarter/${quarter.name}`}>{quarter.name}</a
 									>
 								</h2>
 								<span class="quarter__splits">{quarter.content.length} splits</span>

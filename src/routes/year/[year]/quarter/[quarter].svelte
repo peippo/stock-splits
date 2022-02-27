@@ -32,7 +32,11 @@
 					{#if month.content.length > 0}
 						<div class="month" in:fly={{ y: -20, duration: 300, delay: index * 100 }}>
 							<h2 class="month__name">
-								<a class="month__link" href={`/year/${year}/month/${month.number}`}>{month.name}</a>
+								<a
+									sveltekit:prefetch
+									class="month__link"
+									href={`/year/${year}/month/${month.number}`}>{month.name}</a
+								>
 							</h2>
 							{month.content.length} splits
 						</div>
