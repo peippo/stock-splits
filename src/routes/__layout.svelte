@@ -36,6 +36,7 @@
 		margin: 0;
 		text-transform: uppercase;
 		font-size: 1.25rem;
+		text-shadow: 0 1px 1px var(--header-link-color);
 
 		a {
 			text-decoration: none;
