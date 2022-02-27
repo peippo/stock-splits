@@ -61,9 +61,13 @@
 		color: var(--submenu-color);
 	}
 
-	a:hover {
-		svg {
-			fill: #fff;
+	a {
+		color: var(--submenu-color);
+
+		&:hover {
+			svg {
+				fill: #fff;
+			}
 		}
 	}
 

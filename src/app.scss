@@ -44,6 +44,18 @@ body {
 	width: 1px;
 	word-wrap: normal !important;
 }
+
+a:focus,
+button:focus {
+	outline: 2px dotted currentColor;
+	outline-offset: 2px;
+}
+
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+	outline: none;
+}
+
 button {
 	appearance: none;
 	padding: 0;
