@@ -78,7 +78,13 @@
 											{split.ticker}
 										</button>
 									</h2>
-									<span class="ticker__split">{split.split_from}:{split.split_to}</span>
+									<span class="ticker__split">
+										{split.split_to}:{split.split_from}
+
+										{#if split.split_to < split.split_from}
+											<abbr title="Reverse split" class="reverse">R</abbr>
+										{/if}
+									</span>
 								</div>
 							{/each}
 						{/if}
@@ -155,6 +161,7 @@
 		padding: 0.25rem;
 		min-width: 1.5rem;
 		text-align: center;
+		border-bottom: 1px solid var(--ticker-color);
 	}
 
 	.ticker {
@@ -186,8 +193,28 @@
 	}
 
 	.ticker__split {
+		display: flex;
+		justify-content: space-between;
 		color: var(--ticker-color);
 		padding: 0.25rem;
+
+		.reverse {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-weight: 700;
+			text-decoration: none;
+			background-color: var(--ticker-color);
+			color: rgba(#fff, 0.75);
+			border-radius: 100px;
+			width: 1.25rem;
+			height: 1.25rem;
+			font-size: 15px;
+
+			&:hover {
+				cursor: help;
+			}
+		}
 	}
 
 	.mask {
