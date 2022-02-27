@@ -1,11 +1,17 @@
 <script>
 	import { page } from '$app/stores';
+	import { quarterMonths } from '$lib/utils';
 
 	export let title;
 	export let href;
 	export let type;
 
-	$: isActive = $page.url.pathname.includes(href);
+	$: isActive =
+		$page.url.pathname.includes(href) ||
+		(href.includes(activeYear) &&
+			quarterMonths[title.toLowerCase()].includes(activeMonth?.toString().padStart(2, '0')));
+	$: activeMonth = $page.params.month;
+	$: activeYear = $page.params.year;
 </script>
 
 <a

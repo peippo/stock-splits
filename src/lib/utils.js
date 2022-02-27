@@ -1,5 +1,5 @@
 const quarterNames = ['q1', 'q2', 'q3', 'q4'];
-const quarterMonths = {
+export const quarterMonths = {
 	q1: ['01', '02', '03'],
 	q2: ['04', '05', '06'],
 	q3: ['07', '08', '09'],
