@@ -7,7 +7,12 @@
 	--block-background-hover-color: #8595a5;
 	--block-border-color: #a1b2c4;
 	--ticker-background-color: #76889b;
+	--ticker-background-hover-color: #607388;
 	--ticker-color: #27303a;
+	--ticker-hover-color: #a1b2c4;
+	--modal-background-color: #b9c1c9;
+	--modal-color: #27303a;
+	--error-color: #c63f30;
 }
 
 html {
@@ -38,4 +43,19 @@ body {
 	position: absolute;
 	width: 1px;
 	word-wrap: normal !important;
+}
+button {
+	appearance: none;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	background-color: transparent;
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	color: inherit;
+
+	&:hover {
+		cursor: pointer;
+	}
 }
