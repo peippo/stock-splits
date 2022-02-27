@@ -21,8 +21,10 @@
 
 	export let splits;
 
+	$: year = $page.params.year;
 	$: month = $page.params.month;
 	$: days = splitDataToDays(splits, month);
+	$: monthStartingDay = new Date(`${year}-${month}-01`).getDay() - 1;
 	$: activeTicker = null;
 
 	function handleTickerClick(ticker) {
@@ -61,6 +63,9 @@
 	<div class="container">
 		{#key month}
 			{#if splits.length > 0}
+				{#each Array(monthStartingDay === -1 ? 6 : monthStartingDay) as _}
+					<div class="day day--previous-month" />
+				{/each}
 				{#each days as day, index}
 					<div class="day" in:fade={{ duration: 250, delay: index * 30 }}>
 						<span class="day__number">{index + 1}</span>
@@ -122,6 +127,24 @@
 			width: calc(100% / 7);
 			min-height: calc(100vw / 7);
 		}
+
+		&:not(.day--previous-month):nth-child(7n),
+		&:not(.day--previous-month):nth-child(7n - 1) {
+			opacity: 0.75;
+			background: repeating-linear-gradient(
+				-45deg,
+				slategrey,
+				slategrey 5px,
+				var(--block-background-color) 5px,
+				var(--block-background-color) 25px
+			);
+		}
+	}
+
+	.day--previous-month {
+		background-color: slategrey;
+		border: 1px solid darken(slategrey, 8%);
+		box-shadow: -5px -5px 0 rgba(darken(slategrey, 15%), 0.25) inset;
 	}
 
 	.day__number {
