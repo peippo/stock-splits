@@ -1,3 +1,8 @@
+<script>
+	import { fly } from 'svelte/transition';
+	import { cubicInOut } from 'svelte/easing';
+</script>
+
 <div class="container">
 	<h1 class="screen-reader-text">Stock Splits</h1>
 	<svg
@@ -58,14 +63,16 @@
 		</g>
 	</svg>
 
-	<h2>Listing of historical stock splits</h2>
+	<div class="info" in:fly={{ y: -25, delay: 1100, duration: 1000, easing: cubicInOut }}>
+		<h2>Listing of historical stock splits</h2>
 
-	<p class="description">
-		A <strong>stock split</strong> is a corporate action in which a company increases the number of shares
-		by issuing more shares to current shareholders
-	</p>
+		<p class="description">
+			A <strong>stock split</strong> is a corporate action in which a company increases the number of
+			shares by issuing more shares to current shareholders
+		</p>
 
-	<p>Data from <a href="https://polygon.io/">Polygon.io</a></p>
+		<p>Data from <a href="https://polygon.io/">Polygon.io</a></p>
+	</div>
 </div>
 
 <style>
@@ -89,7 +96,7 @@
 		line-height: 1.6;
 		color: #10151a;
 		text-align: center;
-		margin-bottom: 1rem;
+		margin-bottom: 2rem;
 	}
 
 	.description {

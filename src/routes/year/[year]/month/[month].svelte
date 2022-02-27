@@ -15,6 +15,8 @@
 <script>
 	import { page } from '$app/stores';
 	import { splitDataToDays } from '$lib/utils';
+	import { fade, fly } from 'svelte/transition';
+
 	import TickerDetails from '$lib/TickerDetails.svelte';
 
 	export let splits;
@@ -57,33 +59,39 @@
 
 <main>
 	<div class="container">
-		{#if splits.length > 0}
-			{#each days as day, index}
-				<div class="day">
-					<span class="day__number">{index + 1}</span>
+		{#key month}
+			{#if splits.length > 0}
+				{#each days as day, index}
+					<div class="day" in:fade={{ duration: 250, delay: index * 30 }}>
+						<span class="day__number">{index + 1}</span>
 
-					{#if day.length > 0}
-						{#each day as split}
-							<div class="ticker">
-								<h2 class="ticker__name">
-									<button class="ticker__button" on:click={() => handleTickerClick(split.ticker)}>
-										{split.ticker}
-									</button>
-								</h2>
-								<span class="ticker__split">{split.split_from}:{split.split_to}</span>
-							</div>
-						{/each}
-					{/if}
-				</div>
-			{/each}
-		{:else}
-			<p>No data found</p>
-		{/if}
+						{#if day.length > 0}
+							{#each day as split}
+								<div class="ticker">
+									<h2 class="ticker__name">
+										<button class="ticker__button" on:click={() => handleTickerClick(split.ticker)}>
+											{split.ticker}
+										</button>
+									</h2>
+									<span class="ticker__split">{split.split_from}:{split.split_to}</span>
+								</div>
+							{/each}
+						{/if}
+					</div>
+				{/each}
+			{:else}
+				<p>No data found</p>
+			{/if}
+		{/key}
 	</div>
 
 	{#if activeTicker}
-		<div class="mask" on:click|self={handleCloseClick}>
-			<div class="modal">
+		<div class="mask" on:click|self={handleCloseClick} transition:fade|local={{ duration: 150 }}>
+			<div
+				class="modal"
+				in:fly|local={{ y: -20, duration: 250, delay: 200 }}
+				out:fly|local={{ y: 20, duration: 250 }}
+			>
 				<TickerDetails ticker={activeTicker} />
 				<button on:click={handleCloseClick} class="modal__close" id="js-modal-close">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

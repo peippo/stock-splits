@@ -15,6 +15,7 @@
 <script>
 	import { page } from '$app/stores';
 	import { splitDataToQuarters } from '$lib/utils';
+	import { fly } from 'svelte/transition';
 
 	export let splits;
 
@@ -24,24 +25,26 @@
 
 <main>
 	<div class="container">
-		{#if splits.length > 0}
-			{#each quarters as quarter}
-				{#if quarter.content.length > 0}
-					<div class="quarter">
-						<div class="quarter__info">
-							<h2 class="quarter__name">
-								<a class="quarter__link" href={`/year/${year}/quarter/${quarter.name}`}
-									>{quarter.name}</a
-								>
-							</h2>
-							<span class="quarter__splits">{quarter.content.length} splits</span>
+		{#key year}
+			{#if splits.length > 0}
+				{#each quarters as quarter, index}
+					{#if quarter.content.length > 0}
+						<div class="quarter" in:fly={{ y: -20, duration: 300, delay: index * 150 }}>
+							<div class="quarter__info">
+								<h2 class="quarter__name">
+									<a class="quarter__link" href={`/year/${year}/quarter/${quarter.name}`}
+										>{quarter.name}</a
+									>
+								</h2>
+								<span class="quarter__splits">{quarter.content.length} splits</span>
+							</div>
 						</div>
-					</div>
-				{/if}
-			{/each}
-		{:else}
-			<p>No data found</p>
-		{/if}
+					{/if}
+				{/each}
+			{:else}
+				<p>No data found</p>
+			{/if}
+		{/key}
 	</div>
 </main>
 
