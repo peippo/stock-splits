@@ -88,6 +88,12 @@
 				<h2 class="error__heading">{error.message}</h2>
 			</div>
 			<p class="error__reason">We don't have any info about this ticker</p>
+			<p class="error__links">
+				<a href={`https://www.google.com/search?q=${ticker}+ticker`}>Search {ticker} on Google</a> |
+				<a href={`https://www.nasdaq.com/market-activity/stocks/${ticker}`}
+					>View {ticker} on Nasdaq</a
+				>
+			</p>
 		{:else if error.name === 'ERROR'}
 			<div class="error__header">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
@@ -174,6 +180,16 @@
 
 		@media (min-width: 800px) {
 			margin: 0 0 0 1rem;
+		}
+	}
+
+	.error__links {
+		margin-top: 2rem;
+		font-size: 16px;
+
+		a {
+			color: var(--ticker-color);
+			margin: 0 0.5rem;
 		}
 	}
 </style>
