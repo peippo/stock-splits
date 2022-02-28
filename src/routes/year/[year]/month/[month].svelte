@@ -151,6 +151,10 @@
 		background-color: slategrey;
 		border: 1px solid darken(slategrey, 8%);
 		box-shadow: -5px -5px 0 rgba(darken(slategrey, 15%), 0.25) inset;
+
+		@media (max-width: 799px) {
+			display: none;
+		}
 	}
 
 	.day__number {
