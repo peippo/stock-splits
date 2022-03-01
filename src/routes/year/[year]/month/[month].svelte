@@ -18,6 +18,7 @@
 	import { fade, fly } from 'svelte/transition';
 
 	import TickerDetails from '$lib/TickerDetails.svelte';
+	import NoData from '$lib/NoData.svelte';
 
 	export let splits;
 
@@ -91,7 +92,7 @@
 					</div>
 				{/each}
 			{:else}
-				<p>No data found</p>
+				<NoData />
 			{/if}
 		{/key}
 	</div>

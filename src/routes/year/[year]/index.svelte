@@ -17,6 +17,8 @@
 	import { splitDataToQuarters } from '$lib/utils';
 	import { fly } from 'svelte/transition';
 
+	import NoData from '$lib/NoData.svelte';
+
 	export let splits;
 
 	$: year = $page.params.year;
@@ -44,7 +46,7 @@
 					{/if}
 				{/each}
 			{:else}
-				<p>No data found</p>
+				<NoData />
 			{/if}
 		{/key}
 	</div>
