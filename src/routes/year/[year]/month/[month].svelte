@@ -23,7 +23,7 @@
 	export let splits;
 
 	$: year = $page.params.year;
-	$: month = $page.params.month;
+	$: month = $page.params.month.toString().padStart(2, '0');
 	$: days = splitDataToDays(splits, month);
 	$: monthStartingDay = new Date(`${year}-${month}-01`).getDay() - 1;
 	$: activeTicker = null;
