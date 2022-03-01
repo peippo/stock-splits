@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-	<title>STOCK/SPLITS</title>>
+	<title>STOCK/SPLITS</title>
 </svelte:head>
 
 <div class="container">

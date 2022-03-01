@@ -28,7 +28,7 @@
 </script>
 
 <svelte:head>
-	<title>{year}</title>>
+	<title>{year}</title>
 </svelte:head>
 
 <main>
