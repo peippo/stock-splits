@@ -28,6 +28,10 @@
 	$: months = splitDataToMonths(splits, year, quarter);
 </script>
 
+<svelte:head>
+	<title>{quarter.toUpperCase()}/{year}</title>
+</svelte:head>
+
 <main>
 	<div class="container">
 		{#key quarter}

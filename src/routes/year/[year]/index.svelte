@@ -27,6 +27,10 @@
 	$: quarters = splitDataToQuarters(splits, year);
 </script>
 
+<svelte:head>
+	<title>{year}</title>>
+</svelte:head>
+
 <main>
 	<div class="container">
 		{#key year}

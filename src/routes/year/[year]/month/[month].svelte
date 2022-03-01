@@ -60,6 +60,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>{month}/{year}</title>
+</svelte:head>
+
 <svelte:window on:keydown={handleKeydown} />
 
 <main>

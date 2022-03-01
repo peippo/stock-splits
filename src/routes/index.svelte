@@ -7,6 +7,10 @@
 	import { cubicInOut } from 'svelte/easing';
 </script>
 
+<svelte:head>
+	<title>STOCK/SPLITS</title>>
+</svelte:head>
+
 <div class="container">
 	<h1 class="screen-reader-text">Stock Splits</h1>
 	<svg
