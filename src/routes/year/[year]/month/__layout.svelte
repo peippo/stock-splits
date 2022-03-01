@@ -36,7 +36,7 @@
 	</a>
 	<h1>
 		<span class="screen-reader-text">Current month: </span>
-		{monthNames[currentMonth - 1]}
+		{monthNames[currentMonth - 1] || ''}
 	</h1>
 	<a sveltekit:prefetch on:click={handleNext} href={`/year/${currentYear}/month/${nextMonth}`}>
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
