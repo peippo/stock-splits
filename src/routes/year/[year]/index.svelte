@@ -1,4 +1,6 @@
 <script context="module">
+	export const prerender = true;
+
 	export async function load({ params, fetch }) {
 		const { year } = params;
 		const response = await fetch(`/year/${year}.json`).then((res) => res.json());
