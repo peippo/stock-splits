@@ -40,7 +40,7 @@
 {#await promise}
 	<p>Fetching ticker details...</p>
 {:then details}
-	<h2>{details.name}</h2>
+	<h2 class="name">{details.name}</h2>
 
 	<div class="info">
 		<div class="info__block">
@@ -89,10 +89,22 @@
 			</div>
 			<p class="error__reason">We don't have any info about this ticker</p>
 			<p class="error__links">
-				<a href={`https://www.google.com/search?q=${ticker}+ticker`}>Search {ticker} on Google</a> |
-				<a href={`https://www.nasdaq.com/market-activity/stocks/${ticker}`}
-					>View {ticker} on Nasdaq</a
-				>
+				<a href={`https://www.google.com/search?q=${ticker}+ticker`}
+					>Search {ticker} on Google
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+						<path
+							d="M384 32H64C28.65 32 0 60.66 0 96v320c0 35.34 28.65 64 64 64h320c35.35 0 64-28.66 64-64V96C448 60.66 419.3 32 384 32zM344 312c0 17.69-14.31 32-32 32s-32-14.31-32-32V245.3l-121.4 121.4C152.4 372.9 144.2 376 136 376s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L234.8 200H168c-17.69 0-32-14.31-32-32s14.31-32 32-32h144c17.69 0 32 14.31 32 32V312z"
+						/>
+					</svg>
+				</a>
+				<a href={`https://www.nasdaq.com/market-activity/stocks/${ticker}`}>
+					View {ticker} on Nasdaq
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+						<path
+							d="M384 32H64C28.65 32 0 60.66 0 96v320c0 35.34 28.65 64 64 64h320c35.35 0 64-28.66 64-64V96C448 60.66 419.3 32 384 32zM344 312c0 17.69-14.31 32-32 32s-32-14.31-32-32V245.3l-121.4 121.4C152.4 372.9 144.2 376 136 376s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L234.8 200H168c-17.69 0-32-14.31-32-32s14.31-32 32-32h144c17.69 0 32 14.31 32 32V312z"
+						/>
+					</svg>
+				</a>
 			</p>
 		{:else if error.name === 'ERROR'}
 			<div class="error__header">
@@ -111,6 +123,10 @@
 {/await}
 
 <style lang="scss">
+	.name {
+		margin-top: 0.5rem;
+	}
+
 	.info {
 		display: flex;
 		align-items: flex-start;
@@ -174,7 +190,6 @@
 	}
 
 	.error__heading {
-		color: var(--error-color);
 		font-size: 1.5rem;
 		margin: 1rem 0 0 0;
 
@@ -184,12 +199,33 @@
 	}
 
 	.error__links {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
 		margin-top: 2rem;
 		font-size: 16px;
 
 		a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			color: var(--ticker-color);
-			margin: 0 0.5rem;
+			margin: 0.25rem 0.5rem;
+		}
+
+		@media (min-width: 800px) {
+			flex-direction: row;
+
+			a:first-of-type {
+				border-right: 1px solid var(--ticker-color);
+				padding-right: 1rem;
+			}
+		}
+
+		svg {
+			width: 0.875rem;
+			margin-left: 0.5rem;
+			fill: var(--ticker-color);
 		}
 	}
 </style>

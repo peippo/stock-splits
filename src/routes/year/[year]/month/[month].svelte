@@ -244,6 +244,8 @@
 		background-color: var(--modal-background-color);
 		max-height: 90vh;
 		overflow: auto;
+		border-top: 5px solid salmon;
+		box-shadow: 0 20px 50px -30px rgb(0 0 0 / 30%);
 
 		@media (min-width: 800px) {
 			padding: 1rem 1.5rem;
@@ -261,6 +263,13 @@
 		svg {
 			fill: var(--modal-color);
 			width: 32px;
+			transition: fill 0.2s;
+		}
+
+		&:hover {
+			svg {
+				fill: black;
+			}
 		}
 	}
 </style>
