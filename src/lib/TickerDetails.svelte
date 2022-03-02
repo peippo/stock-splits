@@ -21,7 +21,7 @@
 		constructor(status) {
 			switch (status) {
 				case 'NOT_FOUND':
-					this.message = 'Sorry, unable to find information';
+					this.message = 'Ticker details not found';
 					this.name = 'NOT_FOUND';
 					break;
 				case 'ERROR':
@@ -87,7 +87,7 @@
 				</svg>
 				<h2 class="error__heading">{error.message}</h2>
 			</div>
-			<p class="error__reason">We don't have any info about this ticker</p>
+			<p class="error__reason">Sorry, we don't have any information about this ticker</p>
 			<p class="error__links">
 				<a href={`https://www.google.com/search?q=${ticker}+ticker`}
 					>Search {ticker} on Google
